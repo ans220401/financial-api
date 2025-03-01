@@ -29,6 +29,10 @@ def get_stock_gross_margin(ticker):
 
     return {"error": f"Gross Margin not found for {ticker}"}
 
+@app.route("/")
+def home():
+    return jsonify({"message": "Welcome to the Financial API!"})
+
 @app.route("/gross_margin", methods=["GET"])
 def gross_margin_api():
     ticker = request.args.get("ticker")
@@ -39,4 +43,4 @@ def gross_margin_api():
     return jsonify(result)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=10000)  # Ensure it runs on 0.0.0.0
