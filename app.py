@@ -43,4 +43,4 @@ def gross_margin_api():
     return jsonify(result)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)  # Ensure it runs on 0.0.0.0
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
