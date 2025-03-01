@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import Flask-CORS
 import requests
 from bs4 import BeautifulSoup
+import os
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 def get_stock_gross_margin(ticker):
     url = f"https://finviz.com/quote.ashx?t={ticker}"
